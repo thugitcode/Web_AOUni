@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google</title>
+</head>
+<body>
+    <center>
+        <table border="1" style="border-collapse: collapse;">
+            <tr>
+                <td>
+                    <div>
+                        <ul>
+                            <h2><b>Tạo thông tin hướng nghiệp</b></h2>
+                        </ul>
+                    </div>
+                    <form action="/submit" method="post">
+
+                        <label for="name">Họ và Tên</label><br>
+                        <input type="text" id="name" name="name" >
+                    
+                        <br><br>
+                    
+                        <label for="id">Mã thành viên</label><br>
+                        <input type="number" id="id" name="id">
+                    
+                        <br><br>
+                    
+                        <label for="diemhb">Điểm học bạ</label><br>
+                        <input type="number" id="diemhb" name="diemhb">
+                    
+                        <br><br>
+
+                        <label>Điểm thi thử</label><br><br>
+                            <label for="dtoan"><b>Toán</b></label>
+                            <input type="number" id="dtoan" name="dtoan" min="0" max="10" step="0.1">
+                        
+
+                            <label for="van"><b>Văn</b></label>
+                            <input type="number" id="van" name="van" min="0" max="10" step="0.1" >
+            
+
+                            <label for="danh"><b>Anh</b></label>
+                            <input type="number" id="danh" name="danh" min="0" max="10" step="0.1">
+                            
+
+                            <label for="dly"><b>Lý</b></label>
+                            <input type="number" id="dly" name="dly" min="0" max="10" step="0.1">
+                            
+
+                            <label for="dhoa"><b>Hóa</b></label>
+                            <input type="number" id="dhoa" name="dhoa" min="0" max="10" step="0.1">
+                            
+
+                            <label for="dsinh"><b>Sinh</b></label>
+                            <input type="number" id="dsinh" name="dsinh" min="0" max="10" step="0.1">
+
+                            <br><br>
+                        
+                            <label for="like">Ngành yêu thích</label><br>
+                            <input type="text" id="like" name="like">
+                        
+                        
+                        <br><br>
+
+                    <div>
+                        <ul>
+                            <button id="n3" style="background-color: aqua;" style="color:black;"><b>Tìm kiếm</b></button>
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </center>
+</body>
+</html>
