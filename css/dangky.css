@@ -1,0 +1,70 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: white;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        border-collapse: collapse;
+        margin: auto;
+        margin-top: 10px;
+        background-color: white ;
+    }
+
+    td {
+        padding: 10px;
+        text-align: center;
+    }
+
+    h4 {
+        text-align: center;
+        color: black;
+    }
+
+    p {
+        color: #777;
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid grey;
+        border-radius: 5px;
+    }
+
+    select {
+        width: 100px;
+        padding: 5px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px; /*cho nó bo bo lại  */
+    }
+
+button#n3 {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff; 
+}
+
+button#n3:hover {
+    background-color: #0056b3; 
+} 
+a {
+        color: #0066cc;
+        text-decoration: none;
+    }
+
+a:hover {
+        text-decoration: underline;
+    }
+</style>
