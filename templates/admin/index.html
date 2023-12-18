@@ -1,15 +1,71 @@
-<!-- templates/layout.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello</title>
+    <title>Danh sách các trường Đại học</title>
+    <style>
+        .footer{
+            background-color: antiquewhite;
+            padding: 10px;
+            text-align: right;
+        }
+        .back{
+            background-color: rgb(250, 239, 224);
+            padding: 10px;
+            text-align: left;
+        }
+      </style>
+    <script>
+        function redirectToLink(link) {
+            window.location.href = link;
+        }
+        
+        function showUniversityInfo(id) {
+            var universityInfo = document.getElementById('university-info-' + id);
+            universityInfo.style.display = 'block';
+        }
+    </script>
 </head>
 <body>
-    <h1> Hello admin</h1>
-    <div id="content">
-       
+    <div class="back">
+    <h1>WELCOME TO AOUni!</h1>
+    <h1> Danh sách các trường Đại học</h1>
+    <img src="https://westlink.edu.vn/wp-content/uploads/2023/10/daihocquoctehanoi3.jpg" alt="Danh sách Đại học">
+    </div>
+    <table>
+        <tr>
+            <th> ID </th>
+            <th> Tên trường </th>           
+            <th> Địa chỉ </th>
+            <th> Website </th>
+        </tr>
+        {% for truong in truong_dai_hoc %}
+        <tr>
+            <td>{{ truong[0] }}</td>
+            <td><a href="#" onclick="showUniversityInfo({{ truong[0] }})">{{ truong[1] }}</a></td>
+            <td>{{ truong[2] }}</td>
+            <td><a href="{{ url_for('redirect_to_website', url=truong[7]) }}"> tuyển sinh </a></td>
+        </tr>
+        <tr id="university-info-{{ truong[0] }}" style="display: none;">
+            <td colspan="4">
+                <p>Thông tin trường Đại học:</p>
+                <p>Tên: {{ truong[1] }}</p>         
+                <p>Địa chỉ: {{ truong[2] }}</p>
+                <p>Website: <a href="#" onclick="redirectToLink('{{ truong[3] }}')">{{ truong[3] }}</a></p>
+                <p>Số lượng tuyển sinh 2023: {{ truong[4] }}</p>
+                <p>Mã trường: {{ truong[5] }}</p>
+                <p>Số mã ngành: {{ truong[6] }}</p>
+                <p>THÔNG TIN CỤ THỂ Ở LINK WEB TRƯỜNG ĐÃ GẮN Ở TRÊN</p>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="footer">
+        <p>Liên hệ:</p>
+        <p>       </p>
+        <p>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội</p>
+        <p>Email: AOUni@gmail.com</p>
+        <p>Số điện thoại: (+84)342204029</p>
+        <p>By AOUni.</p>
     </div>
 </body>
 </html>

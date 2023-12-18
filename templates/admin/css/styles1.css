@@ -1,0 +1,21 @@
+
+.image-container {
+    display: flex;
+  }
+  
+  .image-container img {
+    width: 5%; /* Điều chỉnh kích thước hình ảnh theo ý muốn */
+    height: auto;
+  }
+
+  .footer{
+    background-color: antiquewhite;
+    padding: 10px;
+    text-align: right;
+}
+
+.back{
+  background-color: rgb(250, 239, 224);
+  padding: 10px;
+  text-align: left;
+}

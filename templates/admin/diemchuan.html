@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Điểm Trung Bình Cộng 3 Năm</title>
+
+    <link rel="stylesheet"
+    href="css/styles1.css">
+
+    <style>
+        .footer{
+            background-color: antiquewhite;
+            padding: 10px;
+            text-align: right;
+        }
+        .back{
+            background-color: rgb(250, 239, 224);
+            padding: 10px;
+            text-align: left;
+        }
+      </style>
+
+</head>
+<body>
+    <div class="back">
+    <h1>WELCOME TO AOUni! </h1>
+    <h1>Điểm Chuẩn Dự Kiến Các Ngành Các Trường Đại Học</h1>
+    </div>
+    <div class="image-container">
+        <img src="https://tintuctuyensinh.vn/wp-content/uploads/2020/08/luat-kinh-te1.jpg" alt="Image 1">
+        </div>
+    <table>
+        <tr>
+            <th>Tên Trường</th>
+            <th>Tên Ngành</th>
+            <th>Mã môn</th>
+            <th>ĐC_2021</th>
+            <th>ĐC_2022</th>
+            <th>ĐC_2023</th>
+            <th>Điểm Dự Đoán 2024</th>
+        </tr>
+        {% for row, diem_tb in zipped_data %}
+        <tr>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[0] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>{{ diem_tb }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div class="footer">
+        <p>Liên hệ:</p>
+        <p>       </p>
+        <p>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội</p>
+        <p>Email: AOUni@gmail.com</p>
+        <p>Số điện thoại: (+84)342204029</p>
+        <p>By AOUni.</p>
+    </div>
+</body>
+</html>
