@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-import pyodbc
+import pyodbc #kết nối với SQLs
 
 app = Flask(__name__)
 
@@ -23,6 +23,8 @@ from flask import redirect, url_for
 def redirect_to_website(url):
     return redirect("https://" + url)
 
+
+#bài in điểm chuẩn
 def tinh_trung_binh(data):
     if len(data)==0:
         return 0
@@ -37,7 +39,7 @@ def index():
     # Lấy tất cả các bản ghi từ kết quả truy vấn
     data = cursor.fetchall()
     diem_trung_binh=[]
-    # Tính điểm trung bình cộng 4 năm của các trường Đại học
+    # Tính điểm trung bình cộng 3 năm của các trường Đại học
     for row in data:
         diem_tb=tinh_trung_binh(row[3:6])
         diem_tb=diem_tb+diem_tb*0.02
