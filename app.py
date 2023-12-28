@@ -70,16 +70,18 @@ def edit_truong_dai_hoc(truong_dai_hoc_id):
             'so_luong_tuyen_sinh': request.form['Soluongts'],
             'ma_truong': request.form['matruong'],
             'so_nganh': request.form['slNganh'],
+            'trang_tuyen_sinh': request.form['webTs'],
         }
 
         # Cập nhật thông tin trong cơ sở dữ liệu
-        cursor.execute('UPDATE TruongDaiHoc SET diachi=?, Website=?,Soluongts=?,matruong=?,slNganh=?,tenTruong=? WHERE ID=?',
+        cursor.execute('UPDATE TruongDaiHoc SET diachi=?, Website=?,Soluongts=?,matruong=?,slNganh=?,tenTruong=?,webTs=? WHERE ID=?',
                        (new_info['dia_chi'],
                         new_info['website'],
                         new_info['so_luong_tuyen_sinh'],
                         new_info['ma_truong'],
                         new_info['so_nganh'],
-                        new_info['ten_truong'], truong_dai_hoc_id))
+                        new_info['ten_truong'], 
+                        new_info['trang_tuyen_sinh'],  truong_dai_hoc_id))
         conn.commit()
 
         # Lấy lại danh sách trường đại học sau khi chỉnh sửa
@@ -95,6 +97,46 @@ def edit_truong_dai_hoc(truong_dai_hoc_id):
 
     # Hiển thị trang 'admin/edit_truong_dai_hoc.html' với thông tin trường đại học cần chỉnh sửa
     return render_template('admin/edit_truong_dai_hoc.html', truong_dai_hoc_info=truong_dai_hoc_info)
+
+# Route để render biểu mẫu cho việc thêm mới thông tin trường Đại học
+@app.route('/admin/add_truong_dai_hoc', methods=['GET', 'POST'])
+def add_truong_dai_hoc():
+    # Kết nối đến cơ sở dữ liệu
+    conn = pyodbc.connect(driver)
+    cursor = conn.cursor()
+
+    if request.method == 'POST':
+        # Lấy giá trị lớn nhất của 'ID' hiện tại
+        cursor.execute('SELECT MAX(ID) FROM TruongDaiHoc')
+        max_id = cursor.fetchone()[0]  # Lấy giá trị lớn nhất hiện tại
+        new_id = max_id + 1  # Tăng giá trị lên 1 để có giá trị mới
+
+        # Lấy dữ liệu từ biểu mẫu và chèn vào cơ sở dữ liệu
+        new_university_info = {
+            'ma_truong': request.form['matruong'],
+            'ten_truong': request.form['tenTruong'],
+            'website': request.form['Website'],
+            'dia_chi': request.form['diachi'],
+            'so_luong_tuyen_sinh': request.form['Soluongts'],
+            'so_nganh': request.form['slNganh'],
+            'trang_tuyen_sinh': request.form['webTs'],
+        }
+
+        # Thực hiện việc chèn vào cơ sở dữ liệu với giá trị mới của 'ID'
+        cursor.execute(
+            'INSERT INTO TruongDaiHoc (ID, matruong, tenTruong, Website, diachi, Soluongts, slNganh, webTs) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            (new_id, new_university_info['ma_truong'], new_university_info['ten_truong'],
+             new_university_info['website'],
+             new_university_info['dia_chi'], new_university_info['so_luong_tuyen_sinh'],
+             new_university_info['so_nganh'], new_university_info['trang_tuyen_sinh']))
+        conn.commit()
+
+        # Chuyển hướng về trang index sau khi thêm mới thông tin
+        return redirect('/admin/index')
+
+
+    # Render biểu mẫu để thêm mới thông tin trường Đại học
+    return render_template('admin/add_truong_dai_hoc.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

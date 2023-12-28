@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thêm mới Trường Đại Học</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #343a40;
+            margin-top: 20px;
+        }
+
+        form {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #495057;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: #fff;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 18px;
+            box-sizing: border-box;
+            margin-left: 5mm;
+        }
+
+        button:hover { 
+            background-color: #218838; 
+        } 
+    </style>
+</head>
+<body>
+    <h1>Thêm mới thông tin Trường Đại Học</h1>
+    <form method="POST" action="{{ url_for('add_truong_dai_hoc') }}">
+        <label for="ma_truong">Mã trường tuyển sinh</label>
+        <input type="text" id="ma_truong" name="matruong" required>
+
+        <label for="ten_truong">Tên trường</label>
+        <input type="text" id="ten_truong" name="tenTruong" required>
+
+        <label for="website">Website trường tuyển sinh</label>
+        <input type="text" id="website" name="Website" required>
+
+        <label for="dia_chi">Địa chỉ</label>
+        <input type="text" id="dia_chi" name="diachi" required>
+
+        <label for="so_luong_tuyen_sinh">Số lượng tuyển sinh</label>
+        <input type="number" id="so_luong_tuyen_sinh" name="Soluongts" required>
+
+        <label for="so_nganh">Số ngành tuyển sinh</label>
+        <input type="number" id="so_nganh" name="slNganh" required>
+
+        <label for="trang_tuyen_sinh">Trang tuyển sinh</label>
+        <input type="text" id="trang_tuyen_sinh" name="webTs" required>
+
+        <div class="button-group">
+            <button type="submit">THÊM MỚI</button>
+            <a href="http://localhost:5000/admin/index" class="exit"><button type="button" style="background-color:red">THOÁT</button></a> 
+        </div>
+    </form>
+</body>
+</html>
