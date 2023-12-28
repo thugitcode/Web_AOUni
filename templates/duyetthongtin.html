@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Duyệt thông tin</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .center {
+            text-align: center;
+        }
+        .back-button {
+            background-color: #25a9d5;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        .back-button.offline {
+            background-color: red; /* Màu đỏ cho nút offline */
+        }
+        
+        .back-button:hover {
+            background-color: #4c93c0;
+        }
+
+        .container {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="center">DANH SÁCH TRƯỜNG TRUYỂN SINH</h1>
+    <div class="container">
+        <a href="http://127.0.0.1:5500/giaodien2.html" class="back-button{% if trangthai == 'offline' %} offline{% endif %}">Trang chủ</a>
+    </div>
+    
+    <th class="center">Lưu ý: Sau khi click vào duyệt hay không duyệt, load lại trang để xem kết quả.</th>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tên Trường</th>
+                    <th>Website</th>
+                    <th>Số lượng TS</th>
+                    <th>Mã Trường</th>
+                    <th>Số lượng Ngành</th>
+                    <th>Website Tuyển sinh</th>
+                    <th>Duyệt</th>
+                    <th>Không duyệt</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for truong in truongs %}
+                <tr>
+                    <td>{{ truong.ID }}</td>
+                    <td>{{ truong.tenTruong }}</td>
+                    <td>{{ truong.Website }}</td>
+                    <td>{{ truong.Soluongts }}</td>
+                    <td>{{ truong.maTruong }}</td>
+                    <td>{{ truong.slNganh }}</td>
+                    <td>{{ truong.webTs }}</td>
+                    <td>
+                        <button onclick="duyet('{{ truong.ID }}')">Duyệt</button>
+                    </td>
+                    <td>
+                        <button onclick="khongDuyet('{{ truong.ID }}')">Không duyệt</button>
+                    </td>   
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function duyet(id) {
+            // Gửi yêu cầu AJAX để cập nhật trạng thái thành 'Đã duyệt'
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/chuyentrangthai', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    console.log('Đã duyệt với ID:', id);
+                    // Thực hiện các hành động cần thiết sau khi cập nhật thành công
+                }
+            };
+            xhr.send('id=' + id + '&trangthai=Duyệt');
+        }
+
+        function khongDuyet(id) {
+            // Gửi yêu cầu AJAX để xóa bản ghi
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '/khongduyet', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                    console.log('Không duyệt với ID:', id);
+                    // Thực hiện các hành động cần thiết sau khi xóa thành công
+                }
+            };
+            xhr.send('id=' + id);
+        }
+    </script>
+</body> 
+</html>

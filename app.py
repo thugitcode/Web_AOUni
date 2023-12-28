@@ -3,7 +3,7 @@ import pyodbc #kết nối với SQLs
 
 app = Flask(__name__)
 
-SERVER='MAYTINHEDUNG\SQLEXPRESS'
+SERVER='DESKTOP-9M2PQQV\SQLEXPRESS'
 DATABASE='AOUni'
 driver = 'DRIVER={SQL Server};SERVER=' + SERVER + ';DATABASE=' + DATABASE + ';Trusted_Connection=yes;'
 
@@ -51,7 +51,7 @@ def index():
     # Trả về kết quả điểm trung bình cho template để hiển thị
     return render_template('admin/diemchuan.html', zipped_data=zipped_data)
 
-    # ...
+    
 
 # Route để chỉnh sửa thông tin của một trường đại học
 @app.route('/admin/edit_truong_dai_hoc/<int:truong_dai_hoc_id>', methods=['GET', 'POST'])
@@ -65,7 +65,6 @@ def edit_truong_dai_hoc(truong_dai_hoc_id):
         # Lấy dữ liệu mới từ biểu mẫu và đặt vào một dictionary
         new_info = {
             'ten_truong': request.form['tenTruong'],
-            'dia_chi': request.form['diachi'],
             'website': request.form['Website'],
             'so_luong_tuyen_sinh': request.form['Soluongts'],
             'ma_truong': request.form['matruong'],
@@ -74,8 +73,8 @@ def edit_truong_dai_hoc(truong_dai_hoc_id):
         }
 
         # Cập nhật thông tin trong cơ sở dữ liệu
-        cursor.execute('UPDATE TruongDaiHoc SET diachi=?, Website=?,Soluongts=?,matruong=?,slNganh=?,tenTruong=?,webTs=? WHERE ID=?',
-                       (new_info['dia_chi'],
+        cursor.execute('UPDATE TruongDaiHoc SET Website=?,Soluongts=?,matruong=?,slNganh=?,tenTruong=?,webTs=? WHERE ID=?',
+                       (
                         new_info['website'],
                         new_info['so_luong_tuyen_sinh'],
                         new_info['ma_truong'],
@@ -116,7 +115,6 @@ def add_truong_dai_hoc():
             'ma_truong': request.form['matruong'],
             'ten_truong': request.form['tenTruong'],
             'website': request.form['Website'],
-            'dia_chi': request.form['diachi'],
             'so_luong_tuyen_sinh': request.form['Soluongts'],
             'so_nganh': request.form['slNganh'],
             'trang_tuyen_sinh': request.form['webTs'],
@@ -124,10 +122,10 @@ def add_truong_dai_hoc():
 
         # Thực hiện việc chèn vào cơ sở dữ liệu với giá trị mới của 'ID'
         cursor.execute(
-            'INSERT INTO TruongDaiHoc (ID, matruong, tenTruong, Website, diachi, Soluongts, slNganh, webTs) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
+            'INSERT INTO TruongDaiHoc (ID, matruong, tenTruong, Website, Soluongts, slNganh, webTs) VALUES (?, ?, ?, ?, ?, ?, ?)',
             (new_id, new_university_info['ma_truong'], new_university_info['ten_truong'],
              new_university_info['website'],
-             new_university_info['dia_chi'], new_university_info['so_luong_tuyen_sinh'],
+             new_university_info['so_luong_tuyen_sinh'],
              new_university_info['so_nganh'], new_university_info['trang_tuyen_sinh']))
         conn.commit()
 

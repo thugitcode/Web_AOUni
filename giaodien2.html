@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trang Web</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            background-color: #f2f2f2;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .header h1 {
+            margin: 0;
+        }
+
+        .menu {
+            display: flex;
+            margin-left: auto;
+            margin-top: 20px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 10px 20px;
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+        }
+      
+        .box h1 {
+            margin: 0; 
+        ;/* Xóa khoảng cách trên và dưới tiêu đề */
+            }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+    }
+
+        .center-content {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            font-size: 17px ;
+            }
+  
+        .box {
+            flex: 1;
+            background-color: #398dd2;
+            color: #f2f2f2;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            }
+
+        .box h1 {
+            margin: 0;
+    }
+
+    .text-center {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+        .center-content h2 {
+            font-size: 16px; /* Kích thước chữ */
+            font-weight: normal;
+        }
+         h3 {
+            font-size: 16px; /* Kích thước chữ */
+            font-weight: normal;
+            text-indent: 0;
+        }
+
+
+        .right-corner {
+            width: 30%;
+            margin-right: 20px;
+        }
+
+        .contact-form {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .left-corner {
+            width: 20%;
+            margin-left: 20px;
+        }
+        .separator {
+            border: none;
+            height: 3px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+.logout-button {
+    background-color: #FF0000; /* Màu đỏ */
+    color: white !important; /* Màu chữ trắng */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+        p {
+            margin-bottom: 30px; /* Khoảng cách dưới đoạn */
+        }
+        N {
+            margin-bottom: 10px; /* Khoảng cách dưới đoạn */
+        }
+        .frame {
+            border: 2px solid #000000; /* Màu viền đen, bạn có thể thay đổi màu sắc tùy ý */
+            padding: 10px; /* Khoảng cách giữa nội dung và viền */
+            display: inline-block; /* Hiển thị khung như một khối nằm trên cùng một dòng */
+}
+
+.text {
+  font-weight: bold; /* Định dạng chữ in đậm */
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="frame">
+            <span class="text">Aouni</span>
+          </div>
+          
+        <div class="menu">
+            <a href="http://localhost:5000/duyetthongtin">KIỂM DUYỆT</a>
+            <a href="http://localhost:5000/admin/diemchuan">THÊM MỚI</a>
+            <a href="http://localhost:5000/admin/index">SỬA ĐỔI</a>
+            <a href="http://localhost:5000/taikhoan">TÀI KHOẢN THÀNH VIÊN</a>
+            <a href="http://localhost:5000/login" class="logout-button">Đăng xuất</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="center-content">
+          <div class="box">
+            <div class="text-center">
+            <h1><a href="http://localhost:5000/duyetthongtin">KIỂM DUYỆT</a></h1>
+            <p></p>
+          </div></div>
+      
+          <div class="box">
+            <div class="text-center">
+            <h1><a href="http://localhost:5000/admin/diemchuan">THÊM MỚI</a></h1>
+            <p></p>
+            <p></p>
+          </div></div>
+      
+          <div class="box">
+            <div class="text-center">
+            <h1><a href="http://localhost:5000/admin/index">SỬA ĐỔI</a></h1>
+            <p></p>
+            <p></p>
+          </div></div>
+          <div class="box">
+            <div class="text-center">
+            <h1><a href="http://localhost:5000/taikhoan">TÀI KHOẢN THÀNH VIÊN</a></h1>
+            <p></p>
+
+        </div></div>
+      </div>
+    </div>
+      
+    <hr class="separator">
+    <div class="footer">
+        <div class="left-corner">
+            <div class="frame">
+                <span class="text">Aouni</span>
+              </div>
+        </div>
+
+        <div class="right-corner">
+              <div class="frame">
+                <span class="text">Liên hệ</span>
+              </div>
+            <h3>Địa chỉ: 175 Tây Sơn, Đống Đa, Hà Nội</h3>
+            <h3>Email: AOUni@gmail.com</h3>
+            <h3>Số điện thoại: (+84)032204029</h3>
+        </div>
+    </div>
+
+</body>
+</html>

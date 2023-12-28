@@ -41,15 +41,14 @@
         {% for truong in truong_dai_hoc %}
         <tr>
             <td>{{ truong[0] }}</td>
-            <td><a href="#" onclick="showUniversityInfo({{ truong[0] }})">{{ truong[1] }}</a></td>
-            <td>{{ truong[2] }}</td>
+            <td><a href="#" onclick="showUniversityInfo('{{ truong[0] }}')">{{ truong[1] }}</a></td> <td>{{ truong[2] }}</td>
             <td><a href="{{ url_for('redirect_to_website', url=truong[7]) }}"> tuyển sinh </a></td>
         </tr>
         <tr id="university-info-{{ truong[0] }}" style="display: none;">
             <td colspan="4">
                 <p>Thông tin trường Đại học:</p>
                 <p>Tên: {{ truong[1] }}</p>         
-                <p>Địa chỉ: {{ truong[2] }}</p>
+              
                 <p>Website: <a href="#" onclick="redirectToLink('{{ truong[3] }}')">{{ truong[3] }}</a></p>
                 <p>Số lượng tuyển sinh 2023: {{ truong[4] }}</p>
                 <p>Mã trường: {{ truong[5] }}</p>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Đăng ký</title>
+</head>
+<body>
+    <h2>Đăng ký</h2>
+    <form method="POST" action="/register">
+        <label for="ho">Họ:</label>
+        <input type="text" id="ho" name="ho"><br><br>
+        
+        <label for="ten">Tên:</label>
+        <input type="text" id="ten" name="ten"><br><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        
+        <label for="matkhau">Mật khẩu:</label>
+        <input type="password" id="matkhau" name="matkhau"><br><br>
+        
+        <label for="ngaysinh">Ngày sinh:</label>
+        <input type="date" id="ngaysinh" name="ngaysinh"><br><br>
+
+        <label for="gioitinh">Giới tính:</label>
+        <select id="gioitinh" name="gioitinh">
+            <option value="Nam">Nam</option>
+            <option value="Nữ">Nữ</option>
+        </select><br><br>
+        
+        <input type="submit" value="Đăng ký">
+    </form>
+</body>
+</html>

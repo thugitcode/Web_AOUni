@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 2px solid black;
+            margin-top: 2%;
+        }
+        
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+        
+        th:last-child, td:last-child {
+            border-right: none;
+        }
+
+        tr:first-child td {
+            background-color: inherit;
+        }
+        
+        .online {
+            background-color: rgb(19, 183, 44);
+            color: inherit;
+        }
+        
+        .offline {
+            background-color: red;
+            color: inherit;
+        }
+        
+        .back-button {
+            background-color: #25a9d5;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        .back-button.offline {
+            background-color: red; /* Màu đỏ cho nút offline */
+        }
+        
+        .back-button:hover {
+            background-color: #4c93c0;
+        }
+    </style>
+
+    <title>Danh sách tài khoản</title>
+</head>
+<body>
+    <h1>Danh sách tài khoản</h1>
+    <a href="http://127.0.0.1:5500/giaodien2.html" class="back-button{% if trangthai == 'offline' %} offline{% endif %}">Trang chủ</a>
+    <table>
+        <tr>
+            <th>Tên đăng nhập</th>
+            <th>Mật khẩu</th>
+            <th>Tên thành viên</th>
+            <th>Ngày sinh</th>
+            <th>Giới tính</th>
+            <th>Email</th>
+            <th>Trạng thái</th>
+        </tr>
+        {% for taikhoan in taikhoans %}
+        <tr>
+            <td>{{ taikhoan.tendangnhap }}</td>
+            <td>{{ taikhoan.matkhau }}</td>
+            <td>{{ taikhoan.tenthanhvien }}</td>
+            <td>{{ taikhoan.ngaysinh }}</td>
+            <td>{{ taikhoan.gioitinh }}</td>
+            <td>{{ taikhoan.email }}</td>
+            <td class="{% if taikhoan.trangthai == 'online' %}online{% else %}offline{% endif %}">
+                {% if taikhoan.trangthai == 'online' %}
+                    Online
+                {% else %}
+                    Offline    
+                {% endif %}    
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
