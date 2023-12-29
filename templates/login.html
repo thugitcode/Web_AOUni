@@ -1,16 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Đăng nhập</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/dangnhap.css">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            border: 2px solid black;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            width: auto;
+            padding: 8px 16px;
+            font-size: 14px;
+            background-color: #fbfbfc;
+            color: #0a0a0a;
+            border: 2px solid black;
+            border-radius: 4px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center; /* Căn giữa theo chiều ngang */
+            align-items: center; /* Căn giữa theo chiều dọc */
+        }
+    </style>
+    <title>AOUni đăng nhập</title>
 </head>
 <body>
-    <h1>Đăng nhập</h1>
-    <form method="POST" action="/login">
-        <label for="username">Tên đăng nhập:</label>
-        <input type="text" id="username" name="username" required><br><br>
-        <label for="password">Mật khẩu:</label>
-        <input type="password" id="password" name="password" required><br><br>
-        <input type="submit" value="Đăng nhập">
-    </form>
+    <center>
+        <table border="1">
+            <tr>
+                <td>
+                    <div>
+                        <ul>
+                            <h2>ĐĂNG NHẬP TÀI KHOẢN</h2>
+                        </ul>
+                    </div>
+                    <div>
+                        <form method="POST" action="/login">
+                            <label for="username">Tên đăng nhập:</label>
+                            <input type="text" id="username" name="username" required><br><br>
+                            <label for="password">Mật khẩu:</label>
+                            <input type="password" id="password" name="password" required><br><br>
+                            <div style="display: flex; justify-content: center;">
+                                <input type="submit" value="Đăng nhập">
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <div>
+                       
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </center>
+    
 </body>
 </html>
